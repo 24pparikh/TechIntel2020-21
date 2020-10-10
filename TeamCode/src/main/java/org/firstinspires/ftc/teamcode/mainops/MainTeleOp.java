@@ -83,21 +83,21 @@ public class MainTeleOp extends LinearOpMode {
         while (opModeIsActive()) {
             // Gamepad 1
             teleLib.processDrive();
-            teleLib.processIntakeStone();
-            teleLib.processStopIntake();
-            teleLib.processOutakeStone();
-            teleLib.processFoundation();
-            teleLib.processTapeMeasure();
+//            teleLib.processIntakeStone();
+//            teleLib.processStopIntake();
+//            teleLib.processOutakeStone();
+//            teleLib.processFoundation();
+//            teleLib.processTapeMeasure();
 //            teleLib.processAutonomousArm();
 
 
             // Gamepad 2
-            teleLib.processMoveArm();
-            teleLib.processGrabStone();
-            teleLib.processScoreStone();
-            teleLib.processExtendArm();
-            teleLib.processRetractArm();
-            teleLib.processDropCapstone();
+//            teleLib.processMoveArm();
+//            teleLib.processGrabStone();
+//            teleLib.processScoreStone();
+//            teleLib.processExtendArm();
+//            teleLib.processRetractArm();
+//            teleLib.processDropCapstone();
             idle();
         }
     }
@@ -108,11 +108,11 @@ public class MainTeleOp extends LinearOpMode {
 
         teleLib = new TeleLib(this);
 
-        teleLib.autonomousArmUp();
-        teleLib.autonomousArmGrab();
-        sleep(2000);
-        teleLib.restServoStopper();
-        teleLib.holdCapstone();
+//        teleLib.autonomousArmUp();
+//        teleLib.autonomousArmGrab();
+//        sleep(2000);
+//        teleLib.restServoStopper();
+//        teleLib.holdCapstone();
 
         telemetry.addData("Status", "Ready");
         telemetry.update();

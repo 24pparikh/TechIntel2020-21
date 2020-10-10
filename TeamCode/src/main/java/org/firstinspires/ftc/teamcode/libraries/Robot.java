@@ -194,8 +194,8 @@ public class Robot {
         this.opMode = opMode;
 
         initDcMotors();
-        initServos();
-        initSensors();
+//        initServos();
+//        initSensors();
 
 
     }
@@ -206,10 +206,10 @@ public class Robot {
         dcMotors[MOTOR_FRONT_RIGHT_WHEEL] = opMode.hardwareMap.get(DcMotor.class, "frontRightWheel");
         dcMotors[MOTOR_BACK_LEFT_WHEEL] = opMode.hardwareMap.get(DcMotor.class, "backLeftWheel");
         dcMotors[MOTOR_BACK_RIGHT_WHEEL] = opMode.hardwareMap.get(DcMotor.class, "backRightWheel");
-        dcMotors[MOTOR_RIGHT_INTAKE] = opMode.hardwareMap.get(DcMotor.class, "rightIntake");
-        dcMotors[MOTOR_LEFT_INTAKE] = opMode.hardwareMap.get(DcMotor.class, "leftIntake");
-        dcMotors[MOTOR_ARM] = opMode.hardwareMap.get(DcMotor.class, "motorArm");
-        dcMotors[MOTOR_TAPE] = opMode.hardwareMap.get(DcMotor.class, "motorTape");
+//        dcMotors[MOTOR_RIGHT_INTAKE] = opMode.hardwareMap.get(DcMotor.class, "rightIntake");
+//        dcMotors[MOTOR_LEFT_INTAKE] = opMode.hardwareMap.get(DcMotor.class, "leftIntake");
+//        dcMotors[MOTOR_ARM] = opMode.hardwareMap.get(DcMotor.class, "motorArm");
+//        dcMotors[MOTOR_TAPE] = opMode.hardwareMap.get(DcMotor.class, "motorTape");
 
         dcMotors[MOTOR_FRONT_LEFT_WHEEL].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         dcMotors[MOTOR_FRONT_RIGHT_WHEEL].setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -222,27 +222,27 @@ public class Robot {
     }
 
 
-    private void initServos() {
-        servos[SERVO_FOUNDATION1] = opMode.hardwareMap.get(Servo.class, "servoFoundation1");
-        servos[SERVO_FOUNDATION2] = opMode.hardwareMap.get(Servo.class, "servoFoundation2");
-        servos[SERVO_AUTONOMOUS_ARM] = opMode.hardwareMap.get(Servo.class, "servoAutonomousArm");
-        servos[SERVO_AUTONOMOUS_GRABBER_FRONT] = opMode.hardwareMap.get(Servo.class, "servoAutonomousGrabberFront");
-        servos[SERVO_AUTONOMOUS_GRABBER] = opMode.hardwareMap.get(Servo.class, "servoAutonomousGrabber");
-        servos[SERVO_GRABBER] = opMode.hardwareMap.get(Servo.class, "servoGrabber");
-        servos[SERVO_SCORING_ARM] = opMode.hardwareMap.get(Servo.class, "servoScoringArm");
-        servos[SERVO_CAPSTONE] = opMode.hardwareMap.get(Servo.class, "servoCapstone");
-        servos[SERVO_INTAKE] = opMode.hardwareMap.get(Servo.class, "servoIntake");
-        servos[SERVO_STOPPER] = opMode.hardwareMap.get(Servo.class, "servoStopper");
-    }
-
-    private void initSensors() {
-        frontDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontDistanceSensor");
-        foundationDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "foundationDistanceSensor");
-        frontRightDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontRightDistanceSensor");
-        frontLeftDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontLeftDistanceSensor ");
-        touchSensors[FOUNDATION_TOUCH_SENSOR] = opMode.hardwareMap.get(RevTouchSensor.class, "foundationTouchSensor");
-//        foundationColorDistanceSensor = opMode.hardwareMap.get(SensorREVColorDistance.class, "foundationColorDistanceSensor");
-    }
+//    private void initServos() {
+//        servos[SERVO_FOUNDATION1] = opMode.hardwareMap.get(Servo.class, "servoFoundation1");
+//        servos[SERVO_FOUNDATION2] = opMode.hardwareMap.get(Servo.class, "servoFoundation2");
+//        servos[SERVO_AUTONOMOUS_ARM] = opMode.hardwareMap.get(Servo.class, "servoAutonomousArm");
+//        servos[SERVO_AUTONOMOUS_GRABBER_FRONT] = opMode.hardwareMap.get(Servo.class, "servoAutonomousGrabberFront");
+//        servos[SERVO_AUTONOMOUS_GRABBER] = opMode.hardwareMap.get(Servo.class, "servoAutonomousGrabber");
+//        servos[SERVO_GRABBER] = opMode.hardwareMap.get(Servo.class, "servoGrabber");
+//        servos[SERVO_SCORING_ARM] = opMode.hardwareMap.get(Servo.class, "servoScoringArm");
+//        servos[SERVO_CAPSTONE] = opMode.hardwareMap.get(Servo.class, "servoCapstone");
+//        servos[SERVO_INTAKE] = opMode.hardwareMap.get(Servo.class, "servoIntake");
+//        servos[SERVO_STOPPER] = opMode.hardwareMap.get(Servo.class, "servoStopper");
+//    }
+//
+//    private void initSensors() {
+//        frontDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontDistanceSensor");
+//        foundationDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "foundationDistanceSensor");
+//        frontRightDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontRightDistanceSensor");
+//        frontLeftDistanceSensor = opMode.hardwareMap.get(Rev2mDistanceSensor.class, "frontLeftDistanceSensor ");
+//        touchSensors[FOUNDATION_TOUCH_SENSOR] = opMode.hardwareMap.get(RevTouchSensor.class, "foundationTouchSensor");
+////        foundationColorDistanceSensor = opMode.hardwareMap.get(SensorREVColorDistance.class, "foundationColorDistanceSensor");
+//    }
 
 
     // Motor methods
@@ -443,40 +443,40 @@ public class Robot {
 
 
     // Servo methods
-    void setServoPosition(int index, float position) {
-        servos[index].setPosition(position);
-    }
-
-
-    void setDeltaServoPosition(int index, float delta) {
-        servos[index].setPosition(
-                // This makes sure the servo positions are between 0 and 1
-                Range.clip(servos[index].getPosition() + delta, 0, 1));
-    }
-
-    float getServoPosition(int index) {
-        return (float) servos[index].getPosition();
-    }
-
-    boolean isTouchSensorPressed(int index) {
-        return touchSensors[index].isPressed();
-    }
-
-    boolean isFoundationTouchSensorPressed() {
-        return touchSensors[FOUNDATION_TOUCH_SENSOR].isPressed();
-    }
-
-    double getDistanceCM() {
-        return (frontDistanceSensor.getDistance(DistanceUnit.CM));
-    }
-
-//    double getColorDistanceCM() {
-//        return (foundationColorDistanceSensor.);
+//    void setServoPosition(int index, float position) {
+//        servos[index].setPosition(position);
+//    }
+//
+//
+//    void setDeltaServoPosition(int index, float delta) {
+//        servos[index].setPosition(
+//                // This makes sure the servo positions are between 0 and 1
+//                Range.clip(servos[index].getPosition() + delta, 0, 1));
+//    }
+//
+//    float getServoPosition(int index) {
+//        return (float) servos[index].getPosition();
+//    }
+//
+//    boolean isTouchSensorPressed(int index) {
+//        return touchSensors[index].isPressed();
+//    }
+//
+//    boolean isFoundationTouchSensorPressed() {
+//        return touchSensors[FOUNDATION_TOUCH_SENSOR].isPressed();
 //    }
 
-    double getFoundationDistance() {
-        return (foundationDistanceSensor.getDistance(DistanceUnit.CM));
-    }
+//    double getDistanceCM() {
+//        return (frontDistanceSensor.getDistance(DistanceUnit.CM));
+//    }
+//
+////    double getColorDistanceCM() {
+////        return (foundationColorDistanceSensor.);
+////    }
+//
+//    double getFoundationDistance() {
+//        return (foundationDistanceSensor.getDistance(DistanceUnit.CM));
+//    }
 
 //    public void setDcMotorPower(double v) {
 //    }
